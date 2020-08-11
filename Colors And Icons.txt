@@ -1,92 +1,16 @@
-			Cores
-Cinza Claro => #909090;
-Cinza medio => #606060;
-Escuro => #212121;
-Azul Forte => #065fd4;
---google-red-100: #f4c7c3;
---google-red-300: #e67c73;
---google-red-500: #db4437;
---google-red-700: #c53929;
---google-blue-100: #c6dafc;
---google-blue-300: #7baaf7;
---google-blue-500: #4285f4;
---google-blue-700: #3367d6;
---google-green-100: #b7e1cd;
---google-green-300: #57bb8a;
---google-green-500: #0f9d58;
---google-green-700: #0b8043;
---google-yellow-100: #fce8b2;
---google-yellow-300: #f7cb4d;
---google-yellow-500: #f4b400;
---google-yellow-700: #f09300;
---google-grey-100: #f5f5f5;
---google-grey-300: #e0e0e0;
---google-grey-500: #9e9e9e;
---google-grey-700: #616161;
---paper-red-50: #ffebee;
---paper-red-100: #ffcdd2;
---paper-red-200: #ef9a9a;
---paper-red-300: #e57373;
---paper-red-400: #ef5350;
---paper-red-500: #f44336;
---paper-red-600: #e53935;
---paper-red-700: #d32f2f;
---paper-red-800: #c62828;
---paper-red-900: #b71c1c;
---paper-red-a100: #ff8a80;
---paper-red-a200: #ff5252;
---paper-red-a400: #ff1744;
---paper-red-a700: #d50000;
---paper-pink-50: #fce4ec;
---paper-pink-100: #f8bbd0;
---paper-pink-200: #f48fb1;
---paper-pink-300: #f06292;
---paper-pink-400: #ec407a;
---paper-pink-500: #e91e63;
---paper-pink-600: #d81b60;
---paper-pink-700: #c2185b;
---paper-pink-800: #ad1457;
---paper-pink-900: #880e4f;
---paper-pink-a100: #ff80ab;
---paper-pink-a200: #ff4081;
---paper-pink-a400: #f50057;
---paper-pink-a700: #c51162;
---paper-purple-50: #f3e5f5;
---paper-purple-100: #e1bee7;
-
-
-			Tamanho
-Lista => width 240px;
-Header => height 56px;
-
-logo => https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/YouTube_Premium_logo.svg/1024px-YouTube_Premium_logo.svg.png
-
-			Header
-Mostrar menu => react-icons/bs => BsList
-Notification => react-icons/bs => BsFillBellFill
+			NOTIFICAÇÂO
 Config Notification => react-icons/bs => BsGearFill
-Aplicativos do google => react-icons/bs => BsFillGrid3X3GapFill
-Search => react-icons/ai => AiOutlineSearch
-New Video => react-icons/md => MdVideoCall
 
-				Menu Lateral
-Fogo => react-icons/ai => AiFillFire
-House => react-icons/bs => BsHouseFill
-Historico => react-icons/gr => GrHistory
-Assistir mais tarde => react-icons/ai => AiFillClockCircle
-Marcados com gostei => react-icons/ai => AiTwotoneLike
-Biblioteca => react-icons/md => MdVideoLibrary
-inscriçoes => react-icons/bs => BsFillCollectionPlayFill
-Meus videos => react-icons/ai => AiFillPlaySquare
-Mostrar mais => react-icons/go => GoChevronDown
-Teclado => react-icons/fa => FaKeyboard
+width: 480px
+height: 642px;
+
+Imagem => https://www.infoescola.com/wp-content/uploads/2019/10/paisagem-ouro-preto-1008049370.jpg
 
 					Video
 TresPontos Vertical => react-icons/bs => BsThreeDotsVertical
 Adicionar a Playlist => react-icons/md => MdPlaylistPlay
 Canal Verificado => react-icons/go => GoVerified
 button play => react-icons/fa => FaPlay
-
 
 					Postagem 
 Like => react-icons/ai => AiTwotoneLike

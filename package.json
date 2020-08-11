@@ -1,5 +1,5 @@
 {
-  "name": "youtubeclone",
+  "name": "youtube",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
@@ -42,6 +42,16 @@
   "devDependencies": {
     "@types/react-icons": "^3.0.0",
     "@types/react-router-dom": "^5.1.5",
-    "@types/styled-components": "^5.1.2"
+    "@types/styled-components": "^5.1.2",
+    "@typescript-eslint/eslint-plugin": "^3.8.0",
+    "@typescript-eslint/parser": "^3.8.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-typescript": "^2.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.5",
+    "prettier": "^2.0.5"
   }
 }
