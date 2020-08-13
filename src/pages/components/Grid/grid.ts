@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
 import { GoChevronDown } from 'react-icons/go';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+    padding-bottom: 56px;
+`;
 
 export const Grid = styled.div`
     display: grid;
