@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import { BsHouseFill, BsFillCollectionPlayFill, BsGearFill } from 'react-icons/bs';
-import { AiFillFire, AiFillFlag, AiFillYoutube, AiFillBulb, AiOutlineHistory, AiFillPlaySquare, AiFillClockCircle, AiTwotoneLike } from 'react-icons/ai';
+import { BsHouseFill, BsFillCollectionPlayFill,BsGearFill } from 'react-icons/bs';
+import { AiFillFire, AiFillFlag, AiFillYoutube, AiFillBulb, AiOutlineHistory, AiFillPlaySquare, AiFillClockCircle,  AiTwotoneLike } from 'react-icons/ai';
 import { MdVideoLibrary, MdPlaylistPlay, MdSmsFailed, MdHelp } from 'react-icons/md';
 import { GoChevronDown, GoChevronUp } from 'react-icons/go';
 import { RiBroadcastLine } from 'react-icons/ri';
@@ -34,7 +34,6 @@ const Menu: React.FC = () => {
         <Container>
             <Principal
                 id="Lista"
-                className="small"
             >
                 <Parte>
                     <Item
@@ -219,10 +218,11 @@ const Menu: React.FC = () => {
                     </HeaderTitle>
                     
                     {
-                        Dados.Inscritos.map((item) => {
+                        Dados.Inscritos.map((item, index) => {
                             return(
                                 <Item
                                     className={item.class && `Subscript  ${item.class}`}
+                                    key={index}
                                 >
                                     <ContainerChannel
                                         className={item.new && `${item.new}`}

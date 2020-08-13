@@ -18,16 +18,15 @@ export const Container = styled.div`
     }
 
     &::-webkit-scrollbar {
-        width: 12px;       
+        width: 10px;       
     }
   
     &::-webkit-scrollbar-track {
-        background: var(--gray-background);        
+        background: var(--gray-background);          
     }
     
     &::-webkit-scrollbar-thumb {
-        background-color: #e9e9e9;         
-        border: 3px solid #e9e9e9;   
+        background-color: var(--background-color-button);         
     }
 `;
 

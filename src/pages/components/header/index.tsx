@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
-
 import Dados from '../dados.json';
+import { useSmall } from '../../context';
 
 import { BsList, BsGearFill } from 'react-icons/bs';
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -36,7 +36,8 @@ import {
 } from './styles';
 
 const Header: React.FC = () => {
-    const [Notification, setNotification] = useState(true);
+    const [Notification, setNotification] = useState(false);
+    const { setPequeno } = useSmall();
     
     return (
         <>
@@ -51,8 +52,15 @@ const Header: React.FC = () => {
                             }}
                             onClick={ () => {
                                 const list = document.querySelector('#Lista')!;
-
                                 list.classList.toggle('small');
+
+                                const Small = document.querySelector('#Lista.small')!;
+
+                                if(Small){
+                                    setPequeno(true);
+                                } else {
+                                    setPequeno(false);
+                                }
                             }}
                         />
                     </Separator>
@@ -133,18 +141,18 @@ const Header: React.FC = () => {
                             <HeaderTitle>Notificações</HeaderTitle>
                             <BsGearFill size={25} />
                         </HeaderNotificacao>
-
                         <Caixa>
                             {
                                 Dados.Notificacao.map( (item) => {
                                     return(
-                                        <Item>
+                                        <Item
+                                            key={item.Titulo}
+                                        >
                                             <Link to="">
                                                 <ChannelImage src={item.channelImage} />
                                                 
                                                 <Channel>
-                                                    <b>{item.channel}</b> enviou um video 
-						    {'  '}
+                                                    <b>{item.channel}</b> enviou um video {'  '}
                                                     {item.Titulo}
                                                 </Channel>
 
@@ -158,13 +166,14 @@ const Header: React.FC = () => {
                             {
                                 Dados.Notificacao.map( (item) => {
                                     return(
-                                        <Item>
+                                        <Item
+                                        key={item.Titulo}
+                                        >
                                             <Link to="">
                                                 <ChannelImage src={item.channelImage} />
                                                 
                                                 <Channel>
-                                                    <b>{item.channel}</b> enviou um video 
-						    {'  '}
+                                                    <b>{item.channel}</b> enviou um video {'  '}
                                                     {item.Titulo}
                                                 </Channel>
 
@@ -178,13 +187,14 @@ const Header: React.FC = () => {
                             {
                                 Dados.Notificacao.map( (item) => {
                                     return(
-                                        <Item>
+                                        <Item
+                                            key={item.Titulo}
+                                        >
                                             <Link to="">
                                                 <ChannelImage src={item.channelImage} />
                                                 
                                                 <Channel>
-                                                    <b>{item.channel}</b> enviou um video 
-						    {'  '}
+                                                    <b>{item.channel}</b> enviou um video {'  '}
                                                     {item.Titulo}
                                                 </Channel>
 

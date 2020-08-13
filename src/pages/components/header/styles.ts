@@ -190,7 +190,7 @@ export const Notificacao = styled.div`
     a{
         display: flex;
         align-items: center;
-	text-decoration: none;
+	    text-decoration: none;
     }
 
     &:hover{
@@ -198,7 +198,7 @@ export const Notificacao = styled.div`
     }
 
     &::-webkit-scrollbar {
-        width: 12px;       
+        width: 10px;       
     }
   
     &::-webkit-scrollbar-track {
@@ -206,8 +206,12 @@ export const Notificacao = styled.div`
     }
     
     &::-webkit-scrollbar-thumb {
-        background-color: #e9e9e9;         
-        border: 3px solid #e9e9e9;   
+        background-color: var(--background-color-button);         
+    }
+
+    @media(width: 1366px){
+        top: 15px;
+        right: 125px;
     }
 `;
 
@@ -232,7 +236,7 @@ export const HeaderNotificacao = styled.div`
 `;
 
 export const HeaderTitle = styled.h3`
-    color: var(--gray-light);
+    color: rgba(255, 255, 255, .9);
 `;
 
 export const Caixa = styled.ul``;
