@@ -9,7 +9,7 @@ export const Container = styled.div`
 export const Grid = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 10px;
+    gap: 10px; 
 
     margin: 25px 20px 20px;
     padding-bottom: 10px;
@@ -56,6 +56,10 @@ export const Close = styled(AiOutlineClose)`
     height: 25px;
 
     cursor: pointer;
+
+    &.hide{
+        display: none;
+    }
 
     &:hover{
         color: var(--white);

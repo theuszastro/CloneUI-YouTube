@@ -45,8 +45,7 @@ export const PostagemConteudo = styled.p`
 `;
 
 export const PostagemImage = styled.img`
-    max-width: 150px
-    height: 100px;
+    max-width: 150px;
 
     margin-right: 20px;
 

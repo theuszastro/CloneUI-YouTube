@@ -1,47 +1,37 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Link } from 'react-router-dom';
 import Dados from '../dados.json';
-import { useSmall } from '../../context';
+import { useSmall, useNotification } from '../../context';
 
 import { BsList, BsGearFill } from 'react-icons/bs';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { FaKeyboard } from 'react-icons/fa';
 
-import { 
-    Container, 
-    Separator, 
-    Left, 
-    Logo, 
-    LogoMarca, 
-    Brasil, 
-    Center, 
-    InputIcon, 
-    Pesquisar, 
-    Search, 
-    Right, 
-    Icon, 
-    Video, 
-    Grid, 
-    Bell, 
-    User,
-    Notificacao,
-    HeaderNotificacao,
-    HeaderTitle,
-    Caixa,
-    Item,
-    Channel,
-    ChannelImage,
-    Thumb
-} from './styles';
+import { Container, Separator, Quantidade, Left, Logo, LogoMarca, Brasil, Center, InputIcon, Pesquisar, Search, Right,  Icon, Video, Grid, Bell, User, Notificacao, HeaderNotificacao, HeaderTitle, Caixa, Item, Channel, ChannelImage, Thumb, Config, Mais, Menos, Limpar } from './styles';
 
 const Header: React.FC = () => {
-    const [Notification, setNotification] = useState(false);
+    const { Notification, setNotification, NotificationNumber, setNotificationNumber } = useNotification();
     const { setPequeno } = useSmall();
     
+    function List(){
+        const list = document.querySelector('#Lista')!;
+        list.classList.toggle('small');
+
+        const Small = document.querySelector('#Lista.small')!;
+
+        if(Small){
+            setPequeno(true);
+        } else {
+            setPequeno(false);
+        }
+    }
+
     return (
         <>
-            <Container>
+            <Container
+                onClick={() => Notification &&  setNotification(false)}
+            >
                 <Left>
                     <Separator>
                         <BsList 
@@ -50,26 +40,17 @@ const Header: React.FC = () => {
                             style={{
                                 cursor: 'pointer',
                             }}
-                            onClick={ () => {
-                                const list = document.querySelector('#Lista')!;
-                                list.classList.toggle('small');
-
-                                const Small = document.querySelector('#Lista.small')!;
-
-                                if(Small){
-                                    setPequeno(true);
-                                } else {
-                                    setPequeno(false);
-                                }
-                            }}
+                            onClick={List}
                         />
                     </Separator>
 
                     <LogoMarca>
-                        <Logo 
-                            src="https://i.postimg.cc/Y0CHZf7s/oie-xb-Ik-JZfmwaqh.png"    
-                        />
-                        <Brasil>BR</Brasil>
+                        <Link to="/">
+                            <Logo 
+                                src="https://i.postimg.cc/Y0CHZf7s/oie-xb-Ik-JZfmwaqh.png"    
+                            />
+                            <Brasil>BR</Brasil>
+                        </Link>
                     </LogoMarca>
                 </Left>
 
@@ -93,36 +74,38 @@ const Header: React.FC = () => {
                     </InputIcon>
     
                     <Search>
-                        <AiOutlineSearch 
-                            size={20} 
-                            color="#9e9e9e"
-                            style={{
-                                cursor: 'pointer',
-                            }}
-                        />
+                        <Link to="/q=">
+                            <AiOutlineSearch 
+                                size={20} 
+                                color="#9e9e9e"
+                                style={{
+                                    cursor: 'pointer',
+                                }}
+                            />
+                        </Link>
                     </Search>
                 </Center>
 
                 <Right>
-                    <Video 
-                        size={28.5} 
-                        color="#FFF" 
-                    />
+                    <Video size={28.5} color="#FFF"/>
                     
-                    <Grid 
-                        size={22.5} 
-                        color="#FFF" 
-                    />
+                    <Grid size={22.5} color="#FFF" />
 
-                    <Icon
-                        onClick={() => {
-                            setNotification(!Notification);
-                        }}
-                    >
-                        <Bell 
-                            size={22.5} 
-                            color="#FFF" 
-                        />
+                    <Icon onClick={() =>  setNotification(!Notification)}>
+                        <Bell size={22.5} color="#FFF" />
+
+                        <Quantidade 
+                            className={NotificationNumber! > 0? 'Number' : ''}
+                        >
+                            <span style={
+                                NotificationNumber! < 9? 
+                                {position: 'absolute',top: -4,left: 19,}
+                                : 
+                                {position: 'absolute', top: -3,left: 17,fontSize: 11}
+                            }>
+                                {NotificationNumber! < 9? NotificationNumber : '9+' }
+                            </span>
+                        </Quantidade>
                     </Icon>
                     
                     <User 
@@ -136,9 +119,33 @@ const Header: React.FC = () => {
 
             {
                 Notification? (
-                    <Notificacao>
+                    <Notificacao
+                        onClick={() => {}}
+                    >
                         <HeaderNotificacao>
                             <HeaderTitle>Notificações</HeaderTitle>
+
+                            <Config>
+                                <Mais onClick={() => setNotificationNumber(NotificationNumber! + 1)}>
+                                    +1
+                                </Mais>
+
+                                <Menos
+                                    onClick={() => {
+                                        if(NotificationNumber === 0)
+                                            return;
+
+                                        setNotificationNumber(NotificationNumber! - 1);
+                                    }}
+                                >
+                                    -1
+                                </Menos>
+
+                                <Limpar onClick={() => setNotificationNumber(0)}>
+                                    Limpar
+                                </Limpar>
+                            </Config>
+
                             <BsGearFill size={25} />
                         </HeaderNotificacao>
                         <Caixa>
@@ -207,7 +214,7 @@ const Header: React.FC = () => {
                         </Caixa>
                     </Notificacao>
                 ) : null
-            }
+            } 
         </>
     );
 }

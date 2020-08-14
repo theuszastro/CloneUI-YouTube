@@ -10,11 +10,15 @@ import { IoLogoGameControllerB, IoMdFilm } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import { Container, Principal, Item, Label, Parte, HeaderTitle, ChannelImage, ChannelNome, ContainerChannel, FooterTitle } from './styles';
 
+import { useNotification } from '../../context';
 import Dados from '../dados.json';
 
 const Menu: React.FC = () => {
     const [Show, setShow] = useState(false);
     const [Sub, setSub] = useState(false);
+    const LengthPlayList = [1, 2, 3, 4, 5, 6, 7, 8];
+
+    const { Notification, setNotification } = useNotification();
 
     useEffect(() => {
         const Lista = document.querySelectorAll('li');
@@ -31,7 +35,11 @@ const Menu: React.FC = () => {
     });
 
     return (
-        <Container>
+        <Container
+            onClick={() => {
+                Notification &&  setNotification(false);
+            }}
+        >
             <Principal
                 id="Lista"
             >
@@ -102,77 +110,18 @@ const Menu: React.FC = () => {
                         <Label>Videos marcados com gostei</Label>
                     </Item>
 
-                    <Item
-                        className="hide playlist"
-                    >
-                        <Link to="">
-                            <MdPlaylistPlay size={25} />
-                        </Link>
-                        <Label>PlayList 1</Label>
-                    </Item>
-
-                    <Item
-                        className="hide playlist"
-                    >
-                        <Link to="">
-                            <MdPlaylistPlay size={25} />
-                        </Link>
-                        <Label>PlayList 2</Label>
-                    </Item>
-
-                    <Item
-                        className="hide playlist"
-                    >
-                        <Link to="">
-                            <MdPlaylistPlay size={25} />
-                        </Link>
-                        <Label>PlayList 3</Label>
-                    </Item>
-
-                    <Item
-                        className="hide playlist"
-                    >
-                        <Link to="">
-                            <MdPlaylistPlay size={25} />
-                        </Link>
-                        <Label>PlayList 4</Label>
-                    </Item>
-
-                    <Item
-                        className="hide playlist"
-                    >
-                        <Link to="">
-                            <MdPlaylistPlay size={25} />
-                        </Link>
-                        <Label>PlayList 5</Label>
-                    </Item>
-
-                    <Item
-                        className="hide playlist"
-                    >
-                        <Link to="">
-                            <MdPlaylistPlay size={25} />
-                        </Link>
-                        <Label>PlayList 6</Label>
-                    </Item>                    
-
-                    <Item
-                        className="hide playlist"
-                    >
-                        <Link to="">
-                            <MdPlaylistPlay size={25} />
-                        </Link>
-                        <Label>PlayList 7</Label>
-                    </Item>
-
-                    <Item
-                        className="hide playlist"
-                    >
-                        <Link to="">
-                            <MdPlaylistPlay size={25} />
-                        </Link>
-                        <Label>PlayList 8</Label>
-                    </Item>
+                    {
+                        LengthPlayList.map((index) => (
+                            <Item
+                                className="hide playlist"
+                            >
+                                <Link to="">
+                                    <MdPlaylistPlay size={25} />
+                                </Link>
+                                <Label>PlayList {index}</Label>
+                            </Item>
+                        ))
+                    }
 
                     <Item
                         onClick={() => {

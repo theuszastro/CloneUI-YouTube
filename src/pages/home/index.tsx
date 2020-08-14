@@ -1,20 +1,25 @@
 import React from 'react';
 
-import { Container } from './styles';
-
 import Header from '../components/header';
 import Menu from '../components/menu';
 import Main from '../components/main';
 
+import VideosGrid from '../components/Home/Grid';
+import { Container, Separator } from './styles';
+
 const Home: React.FC = () => {
   return (
-    <>
+    <Container>
       <Header />
-      <Container>
-        <Menu />
-        <Main />
-      </Container>
-    </>
+ 
+      <Separator>
+        <Menu /> 
+
+        <Main>
+          <VideosGrid />
+        </Main>
+      </Separator>
+    </Container>
   );
 }
 

@@ -4,11 +4,11 @@ import { Container, Grid, PreAnuncio, Group, Close, MostrarMais, IconBaixo, Cont
 
 import { Postagens, MaisPostagem, MostrarPostagem } from './postagem';
 
-import Dados from '../dados.json';
+import Dados from '../../dados.json';
 import ChannelVideo from '../video';
 import Postagem from '../Postagem';
 
-import { useSmall } from '../../context';
+import { useSmall } from '../../../context';
 
 const VideosGrid: React.FC = () => {
     const { Pequeno } = useSmall();
@@ -62,7 +62,8 @@ const VideosGrid: React.FC = () => {
                     className="Esconder"
                 >
                     <PreAnuncio>Principais notícias</PreAnuncio>
-                    <Close 
+                    <Close
+                        className="close"
                         onClick={() => {
                             const Esconder = document.querySelectorAll('.Esconder');
 
@@ -117,9 +118,11 @@ const VideosGrid: React.FC = () => {
                     onClick={() => {
                         const MaisMostrar = document.querySelector('.mostrar')!;
                         const GridMostrar = document.querySelector('#Esconder')!;
-
+                        const Fechar = document.querySelector('.close')!;
+                         
                         setMostrar(true);
 
+                        Fechar.classList.add('hide');
                         MaisMostrar.classList.add('NaoMostrar');
                         GridMostrar.classList.remove('Esconder');
                     }}

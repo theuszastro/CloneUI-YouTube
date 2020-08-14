@@ -23,4 +23,8 @@ export default createGlobalStyle`
     body{
         overflow: hidden;
     }
+
+    a{
+        text-decoration: none;
+    }
 `;

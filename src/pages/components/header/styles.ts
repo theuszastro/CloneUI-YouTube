@@ -108,12 +108,23 @@ export const Right = styled.div`
 
 export const Icon = styled.div`
     position: relative;
+`;
 
-    &::before{
-        content: '8';
+export const Quantidade = styled.span`
+    cursor: pointer;
 
-        font-size: 10.5px;
-        font-weight: bold;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+
+    display: none;
+
+    &.Number{
+        display: block;
+    }
+
+    &.Number::before{
+        content: '';
 
         display: flex;
         align-items: center;
@@ -293,11 +304,39 @@ export const ChannelImage = styled.img`
 `;
 
 export const Thumb = styled.img`
-    width: 85px;
+    width: 60px;
     height: 50px;
 
     border-radius: 4px;
 
     margin-right: 40px;
     margin-left: 15px;
+`;
+
+const buttons = css`
+    width: 60px;
+    height: 30px;
+
+    background-color: var(--white);
+    color: #000;
+
+    border: 0px;
+`;
+
+export const Config = styled.div`
+    button + button{
+        margin-left: 5px;
+    }
+`;
+
+export const Mais = styled.button`
+    ${buttons}
+`;
+
+export const Menos = styled.button`
+    ${buttons}
+`;
+
+export const Limpar = styled.button`
+    ${buttons}
 `;

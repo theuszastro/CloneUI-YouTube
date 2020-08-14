@@ -1,13 +1,18 @@
 import React from 'react';
 
-import VideosGrid from '../Grid';
-
 import { Container } from './styles';
+import { useNotification } from '../../context';
 
-const Conteudo: React.FC = () => {
+const Conteudo: React.FC = ({ children }) => {
+    const { Notification, setNotification } = useNotification();
+
     return (
-        <Container>
-            <VideosGrid />
+        <Container
+            onClick={() => {
+                Notification &&  setNotification(false);
+            }}
+        >
+            {children}
         </Container>
     );
 }
