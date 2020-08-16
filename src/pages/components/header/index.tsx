@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 import Dados from '../dados.json';
-import { useSmall, useNotification } from '../../context';
+import { useSmall, useNotification, useOptions } from '../../context';
 
 import { BsList, BsGearFill } from 'react-icons/bs';
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -11,7 +11,9 @@ import { FaKeyboard } from 'react-icons/fa';
 import { Container, Separator, Quantidade, Left, Logo, LogoMarca, Brasil, Center, InputIcon, Pesquisar, Search, Right,  Icon, Video, Grid, Bell, User, Notificacao, HeaderNotificacao, HeaderTitle, Caixa, Item, Channel, ChannelImage, Thumb, Config, Mais, Menos, Limpar } from './styles';
 
 const Header: React.FC = () => {
-    const { Notification, setNotification, NotificationNumber, setNotificationNumber } = useNotification();
+    const { Notification, setNotification, NotificationNumber, setNotificationNumber } = useNotification(); 
+    const { Options, setOptions } = useOptions(); 
+
     const { setPequeno } = useSmall();
     
     function List(){
@@ -30,7 +32,10 @@ const Header: React.FC = () => {
     return (
         <>
             <Container
-                onClick={() => Notification &&  setNotification(false)}
+                onClick={() => {
+                    Notification &&  setNotification(false);
+                    Options && setOptions(false);                
+                }}
             >
                 <Left>
                     <Separator>
@@ -72,9 +77,9 @@ const Header: React.FC = () => {
                             }} 
                         />
                     </InputIcon>
-    
-                    <Search>
-                        <Link to="/q=">
+                    
+                    <Link to="/q=">
+                        <Search>
                             <AiOutlineSearch 
                                 size={20} 
                                 color="#9e9e9e"
@@ -82,8 +87,9 @@ const Header: React.FC = () => {
                                     cursor: 'pointer',
                                 }}
                             />
-                        </Link>
-                    </Search>
+                        </Search>
+                    </Link>
+                    
                 </Center>
 
                 <Right>
@@ -168,27 +174,6 @@ const Header: React.FC = () => {
                                         </Item>
                                     );
                                 })   
-                            }
-
-                            {
-                                Dados.Notificacao.map( (item) => {
-                                    return(
-                                        <Item
-                                        key={item.Titulo}
-                                        >
-                                            <Link to="">
-                                                <ChannelImage src={item.channelImage} />
-                                                
-                                                <Channel>
-                                                    <b>{item.channel}</b> enviou um video {'  '}
-                                                    {item.Titulo}
-                                                </Channel>
-
-                                                <Thumb src={item.image} />
-                                            </Link>    
-                                        </Item>
-                                    );
-                                })
                             }
 
                             {

@@ -9,6 +9,8 @@ export const Container = styled.div`
     max-width: 330px;
     min-width: 275px;
 
+    font-family: 'Montserrat';
+
     flex: 1;
 
     cursor: pointer;
@@ -123,6 +125,7 @@ export const ChannelNome = styled.h3`
 
 export const Visualizacao = styled.p`
     color: var(--gray-light);
+
 `;
 
 export const Verificado = styled(GoVerified)`

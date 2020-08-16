@@ -12,6 +12,31 @@ interface Props{
 }
 
 const Postagem: React.FC<Props> = ({channel, channelImage, like, comments, conteudo, image}) => {
+    const Letras = conteudo.split('');
+    let Resultado = '';
+    var PrimeiraVez = true;
+
+    Letras.forEach((key: string, value: number) => {
+        if(Letras.length <= 96){
+            Resultado += Letras[value];
+
+            return;
+        }
+
+        if(Resultado.length > 96){
+            if(PrimeiraVez){
+                PrimeiraVez = false;
+
+                Resultado = Resultado.concat('...');
+            }
+
+            return;
+        }
+
+        Resultado += Letras[value];
+    });
+
+
     return (
         <Post
             key={like}
@@ -25,7 +50,7 @@ const Postagem: React.FC<Props> = ({channel, channelImage, like, comments, conte
                 <Grupo
                     className="Conteudo"
                 >
-                    <PostagemConteudo>{conteudo}</PostagemConteudo>
+                    <PostagemConteudo>{Resultado}</PostagemConteudo>
                     <PostagemImage src={image} />
                 </Grupo>
             </Conteudo>

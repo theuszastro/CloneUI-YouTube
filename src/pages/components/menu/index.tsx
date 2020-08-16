@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import { BsHouseFill, BsFillCollectionPlayFill,BsGearFill } from 'react-icons/bs';
-import { AiFillFire, AiFillFlag, AiFillYoutube, AiFillBulb, AiOutlineHistory, AiFillPlaySquare, AiFillClockCircle,  AiTwotoneLike } from 'react-icons/ai';
-import { MdVideoLibrary, MdPlaylistPlay, MdSmsFailed, MdHelp } from 'react-icons/md';
-import { GoChevronDown, GoChevronUp } from 'react-icons/go';
-import { RiBroadcastLine } from 'react-icons/ri';
-import { IoLogoGameControllerB, IoMdFilm } from 'react-icons/io';
+import { BsHouseFill, BsFillCollectionPlayFill, BsGearFill, GoChevronDown, GoChevronUp, IoMdFilm, IoLogoGameControllerB, RiBroadcastLine, AiFillFire, AiFillFlag, AiFillYoutube, AiFillBulb, AiOutlineHistory, AiFillPlaySquare, AiFillClockCircle,  AiTwotoneLike, MdVideoLibrary, MdPlaylistPlay, MdSmsFailed, MdHelp } from './icons'
 
 import { Link } from 'react-router-dom';
 import { Container, Principal, Item, Label, Parte, HeaderTitle, ChannelImage, ChannelNome, ContainerChannel, FooterTitle } from './styles';
 
-import { useNotification } from '../../context';
+import { useNotification, useOptions } from '../../context';
 import Dados from '../dados.json';
 
 const Menu: React.FC = () => {
@@ -19,6 +14,7 @@ const Menu: React.FC = () => {
     const LengthPlayList = [1, 2, 3, 4, 5, 6, 7, 8];
 
     const { Notification, setNotification } = useNotification();
+    const { Options, setOptions } = useOptions();
 
     useEffect(() => {
         const Lista = document.querySelectorAll('li');
@@ -38,6 +34,7 @@ const Menu: React.FC = () => {
         <Container
             onClick={() => {
                 Notification &&  setNotification(false);
+                Options &&  setOptions(false);
             }}
         >
             <Principal

@@ -8,7 +8,10 @@ export const Container = styled.div`
 
     padding-bottom: 20px;
 
+    font-family: 'Montserrat';
+    font-size: 15px;
     color: #fff;
+
     background-color: var(--gray-background);
 
     overflow: hidden;
@@ -110,7 +113,7 @@ export const Label = styled.p`
     overflow: hidden;
     white-space: nowrap;
 
-    font-size: 15px;
+    font-size: 14px;
     text-align: center;
 `;
 
@@ -152,6 +155,7 @@ export const HeaderTitle = styled.p`
 
     margin: 0px 0px 10px 15px;
 
+    font-size: 14px;
     font-weight: bold;
 `;
 

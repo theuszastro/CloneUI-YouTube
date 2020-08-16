@@ -9,6 +9,9 @@ type ContextProps = {
 
     NotificationNumber: number;
     setNotificationNumber: any;
+
+    Options: boolean;
+    setOptions: any;
 }
 
 const GeralContext = createContext<Partial<ContextProps>>({});
@@ -17,13 +20,15 @@ const ContextProvider: React.FC = ({ children }) => {
     const [Pequeno, setPequeno] = useState(false);
     const [Notification, setNotification] = useState(false);
     const [NotificationNumber, setNotificationNumber] = useState(2);
+    const [Options, setOptions] = useState(false);
 
     return (
         <GeralContext.Provider
             value={{
                 Pequeno, setPequeno,
                 Notification, setNotification,
-                NotificationNumber, setNotificationNumber
+                NotificationNumber, setNotificationNumber,
+                Options, setOptions
             }}
         >
             {children}
@@ -43,6 +48,13 @@ export function useNotification() {
     const { Notification, setNotification, NotificationNumber, setNotificationNumber } = context;
 
     return { Notification, setNotification, NotificationNumber, setNotificationNumber };
+}
+
+export function useOptions(){
+    const context = useContext(GeralContext);
+    const { Options, setOptions } = context;
+
+    return { Options, setOptions };
 }
 
 export default ContextProvider;

@@ -11,6 +11,8 @@ export const Post = styled.div`
     max-width: 500px;
     height: 220px;
 
+    font-family: 'Montserrat';
+
     position: relative;
 `;
 
@@ -31,7 +33,7 @@ export const ChannelImage = styled.img`
 export const ChannelNome = styled.h3`
     color: var(--gray-light);
 
-    font-size: 16px;
+    font-size: 14.5px;
 
     margin-left: 10px;
 `;
@@ -39,13 +41,14 @@ export const ChannelNome = styled.h3`
 export const PostagemConteudo = styled.p`
     width: 50%;
 
-    margin: 0px 3% 0px 6%;
+    margin: 0px 3% 0px 5%;
 
-    font-size: 16px;
+    font-size: 13px;
 `;
 
 export const PostagemImage = styled.img`
     max-width: 150px;
+    height: 100px;
 
     margin-right: 20px;
 
@@ -127,6 +130,8 @@ export const PostagemReport = styled(BsThreeDotsVertical)`
 
 export const Conteudo = styled.div`
     display: flex;
+    
+    max-height: 100px;
 `;
 
 export const Grupo = styled.div`
@@ -136,7 +141,9 @@ export const Grupo = styled.div`
 
     &.Conteudo{
         align-items: unset;
-        justify-content: unset;
+        justify-content: space-between;
+
+        width: 100%;
     }
 `;
 

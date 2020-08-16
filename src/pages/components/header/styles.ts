@@ -23,6 +23,11 @@ export const Container = styled.div`
 export const Left = styled.div`
     display: flex;
     align-items: center;
+
+    a{
+        display: flex;
+        align-items: center;
+    }
 `;
 
 export const Logo = styled.img`
@@ -90,6 +95,8 @@ export const Search = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    cursor: pointer;
 
     border: 0px;
     border-radius: 0px 4px 4px 0px;
