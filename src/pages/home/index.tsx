@@ -9,7 +9,11 @@ import { useNotification } from '../context';
 import VideosGrid from '../components/Home/Grid';
 import { Container, Separator } from './styles';
 
-const Home: React.FC = () => {
+interface TemaProps{
+  MudarTema(): void;
+}
+
+const Home: React.FC<TemaProps> = ({ MudarTema }) => {
   const { NotificationNumber } = useNotification(); 
 
   if(NotificationNumber! > 0){
@@ -20,8 +24,8 @@ const Home: React.FC = () => {
    
   return (
     <Container>
-      <Header />
- 
+      <Header ToggleTheme={MudarTema}/>
+    
       <Separator>
         <Menu /> 
 

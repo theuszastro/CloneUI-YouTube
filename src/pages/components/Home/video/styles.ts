@@ -77,6 +77,7 @@ export const Duration = styled.p`
     font-size: 15px;
 
     background-color: rgba(0, 0, 0, .8);
+    color: #fff;
 
     &.aumentar{
         bottom: -25px;
@@ -95,13 +96,15 @@ export const ChannelImage = styled.img`
 
 export const Titulo = styled.h3`
     font-weight: normal;
-    font-size: 14px;
+    font-size: 13.5px;
     
     line-height: 20px;
 
     margin-top: 8px;
 
     width: 200px;
+
+    color: ${props => props.theme.colors.label};
 
     &.aumentar{
         width: 240px;
@@ -116,23 +119,25 @@ export const Titulo = styled.h3`
 
 export const ChannelNome = styled.h3`
     font-weight: 600;
-    font-size: 15px;
+    font-size: 13px;
 
     margin-right: 6.5px;
 
-    color: var(--gray-light);
+    color: ${props => props.theme.colors.icons};
 `;
 
 export const Visualizacao = styled.p`
-    color: var(--gray-light);
-
+    color: ${props => props.theme.colors.icons};
+    
+    font-size: 13px;
+    font-weight: 500;
 `;
 
 export const Verificado = styled(GoVerified)`
     width: 12.5px;
     height: 12.5px;
 
-    color: var(--gray-light);
+    color: ${props => props.theme.colors.icons};
 `;
 
 export const MaisTarde = styled(AiFillClockCircle)`
@@ -141,6 +146,7 @@ export const MaisTarde = styled(AiFillClockCircle)`
     display: none;
 
     background-color: rgba(0, 0, 0, .8);
+    color: #FFF;
 
     position: absolute;
     top: 5px;
@@ -148,7 +154,6 @@ export const MaisTarde = styled(AiFillClockCircle)`
 
     width: 20px;
     height: 20px;
-
 `;
 
 export const PlayList = styled(MdPlaylistPlay)`
@@ -157,6 +162,7 @@ export const PlayList = styled(MdPlaylistPlay)`
     display: none;
 
     background-color: rgba(0, 0, 0, .8);
+    color: #FFF;
 
     position: absolute;
     top: 38px;
@@ -170,7 +176,7 @@ export const TresPontos = styled(BsThreeDotsVertical)`
     width: 15px;
     height: 20px;
 
-    color: var(--gray-light);
+    color: ${props => props.theme.colors.icons};
 
     padding: 8px 0px;
     margin-left: 9px;

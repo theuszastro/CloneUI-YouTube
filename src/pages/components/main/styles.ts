@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
-
 export const Container = styled.div`
     margin-top: 56px;
 
     flex: 1;
     height: 100vh;
 
-    background-color: var(--main-background);
+    background-color: ${props => props.theme.colors.secondary};
     color: #fff;
 
     overflow: auto;
@@ -17,11 +16,11 @@ export const Container = styled.div`
     }
   
     &::-webkit-scrollbar-track {
-        background: var(--main-background);        
+        background: ${props => props.theme.colors.secondary};        
     }
     
     &::-webkit-scrollbar-thumb {
-        background-color: var(--background-color-button);         
-        border: 3px solid var(--background-color-button);   
+        background-color: ${props => props.theme.colors.button_border};         
+        border: 3px solid ${props => props.theme.colors.button_border};   
     }
 `;

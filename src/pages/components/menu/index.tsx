@@ -5,7 +5,7 @@ import { BsHouseFill, BsFillCollectionPlayFill, BsGearFill, GoChevronDown, GoChe
 import { Link } from 'react-router-dom';
 import { Container, Principal, Item, Label, Parte, HeaderTitle, ChannelImage, ChannelNome, ContainerChannel, FooterTitle } from './styles';
 
-import { useNotification, useOptions } from '../../context';
+import { useNotification, useOptions, useProfile } from '../../context';
 import Dados from '../dados.json';
 
 const Menu: React.FC = () => {
@@ -15,12 +15,17 @@ const Menu: React.FC = () => {
 
     const { Notification, setNotification } = useNotification();
     const { Options, setOptions } = useOptions();
+    const { Profile, setProfile } = useProfile();
+
+    const url = 'http://localhost:3000';
+
+    const condicao = window.location.href === url.concat('/q=');
 
     useEffect(() => {
         const Lista = document.querySelectorAll('li');
 
         Lista.forEach((key: Element, value: number) => {
-            Lista[value].addEventListener('click', (event) => {         
+            Lista[value].addEventListener('click', () => {         
                 Lista.forEach((key: any, index: number) => {
                     Lista[index].classList.remove('active');
                 }); 
@@ -35,6 +40,7 @@ const Menu: React.FC = () => {
             onClick={() => {
                 Notification &&  setNotification(false);
                 Options &&  setOptions(false);
+                Profile &&  setProfile(false);
             }}
         >
             <Principal
@@ -42,12 +48,12 @@ const Menu: React.FC = () => {
             >
                 <Parte>
                     <Item
-                        className="show active"
+                        className={condicao? 'show' : 'show active'}
                     >
                         <Link to="/">
                             <BsHouseFill size={25} />
+                            <Label>Início</Label>
                         </Link>
-                        <Label>Início</Label>
                     </Item>
 
                     <Item

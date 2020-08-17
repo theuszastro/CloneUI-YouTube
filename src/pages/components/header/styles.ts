@@ -3,7 +3,7 @@ import { BsFillGrid3X3GapFill, BsFillBellFill } from 'react-icons/bs';
 import { MdVideoCall } from 'react-icons/md';
 
 export const Container = styled.div`
-    background-color: var(--gray-background);
+    background-color: ${props => props.theme.colors.primary};
 
     width: 100%;
     height: 56px;
@@ -46,7 +46,7 @@ export const LogoMarca = styled.div`
 `;
 
 export const Brasil = styled.p`
-    color: var(--gray-light-text);
+    color: ${props => props.theme.colors.input_text};
 
     font-size: 9px;
 
@@ -59,9 +59,9 @@ export const Center = styled.div`
 `;
 
 export const InputIcon = styled.div`
-    border: 1px solid var(--background-color-button);
+    border: 1px solid ${props => props.theme.colors.button_border};
 
-    background-color: #030303;
+    background-color: ${props => props.theme.colors.input_fundo};
 
     width: 575px;
 
@@ -69,7 +69,7 @@ export const InputIcon = styled.div`
     align-items: center;
 
     &:focus-within{
-        border: 1px solid var(--blue-dark);
+        border: 1px solid ${props => props.theme.colors.like};
     }
 `;
 
@@ -77,8 +77,8 @@ export const Pesquisar = styled.input`
     width: 531px;
     height: 28px;
 
-    background-color: #030303;
-    color: var(--gray-light-text);
+    background-color: ${props => props.theme.colors.input_fundo};
+    color: ${props => props.theme.colors.input_text};
 
     border: 0px;
     outline: 0;
@@ -98,12 +98,13 @@ export const Search = styled.button`
 
     cursor: pointer;
 
-    border: 0px;
+    border: 1px solid ${props => props.theme.colors.button_border};
+    border-left: 0px;
     border-radius: 0px 4px 4px 0px;
 
     outline: 0;
 
-    background-color: var(--background-color-button);
+    background-color: ${props => props.theme.colors.button};
 `;
 
 export const Right = styled.div`
@@ -147,7 +148,7 @@ export const Quantidade = styled.span`
         width: 17.5px;
         height: 17.5px;
 
-        border: 2px solid var(--gray-background);
+        border: 2px solid ${props => props.theme.colors.primary};
         border-radius: 50%;
     }
 `;
@@ -200,11 +201,11 @@ export const Notificacao = styled.div`
 
     z-index: 99999999;
 
-    background-color: var(--gray-background);
-    border: 1px solid var(--background-color-button);
+    background-color: ${props => props.theme.title === 'light'? '#fff' : props.theme.colors.primary};
+    border: 1px solid ${props => props.theme.colors.button_border};
 
     overflow: hidden;
-
+    
     a{
         display: flex;
         align-items: center;
@@ -213,6 +214,7 @@ export const Notificacao = styled.div`
 
     &:hover{
         overflow: auto;
+        overflow-x: hidden;
     }
 
     &::-webkit-scrollbar {
@@ -220,11 +222,11 @@ export const Notificacao = styled.div`
     }
   
     &::-webkit-scrollbar-track {
-        background: var(--gray-background);        
+        background: ${props => props.theme.colors.primary};  
     }
     
     &::-webkit-scrollbar-thumb {
-        background-color: var(--background-color-button);         
+        background-color: ${props => props.theme.colors.button_border};         
     }
 
     @media(width: 1366px){
@@ -240,21 +242,17 @@ export const HeaderNotificacao = styled.div`
 
     padding: 10px 20px;
 
-    border-bottom: 1px solid var(--background-color-button);
+    border-bottom: 1px solid ${props => props.theme.colors.button_border};
 
     svg{
-        color: var(--gray-light-text);
+        color: ${props => props.theme.colors.input_text};
 
         cursor: pointer;
-
-        &:hover{
-            color: var(--white);
-        }
     }
 `;
 
 export const HeaderTitle = styled.h3`
-    color: rgba(255, 255, 255, .9);
+    color: ${props => props.theme.colors.label};
 `;
 
 export const Caixa = styled.ul``;
@@ -275,9 +273,9 @@ export const Item = styled.li`
     cursor: pointer;
 
     &:hover{
-        background-color: var(--hover-gray);
+        background-color: ${props => props.theme.colors.liActive};
 
-        color: (--white);
+        color: ${props => props.theme.colors.iconsActive}
     }
 
     &::before{
@@ -295,7 +293,7 @@ export const Item = styled.li`
 `;
 
 export const Channel = styled.h4`
-    color: rgba(255, 255, 255, .89);
+    color: ${props => props.theme.colors.label};
 
     font-size: 16px;
     font-weight: normal;
@@ -324,8 +322,8 @@ const buttons = css`
     width: 60px;
     height: 30px;
 
-    background-color: var(--white);
-    color: #000;
+    background-color: ${props => props.theme.colors.button};
+    color: ${props => props.theme.colors.label};
 
     border: 0px;
 `;

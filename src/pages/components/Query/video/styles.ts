@@ -44,7 +44,7 @@ export const Image = styled.img`
 
 export const Duration = styled.p`
     position: absolute;
-    bottom: 5px;
+    bottom: 8px;
     right: 5px;
 
     padding: 2.5px;
@@ -84,9 +84,7 @@ export const Playlist = styled(MdPlaylistPlay)`
     width: 20px;
 `;
 
-export const Details = styled.div`
-    color: var(--gray-light-text);
-`;
+export const Details = styled.div``;
 
 export const Flex = styled.div`
     display: flex;
@@ -101,7 +99,7 @@ export const Titulo = styled.h2`
 
     padding: 0px 20px;
 
-    color: var(--white);
+    color: ${props => props.theme.colors.label};
 
     width: 80%;
 
@@ -114,7 +112,7 @@ export const TresPontos = styled(BsThreeDotsVertical)`
     width: 15px;
     height: 20px;
 
-    color: var(--gray-light);
+    color: ${props => props.theme.colors.icons};
 
     margin-left: 9px;
 
@@ -125,6 +123,8 @@ export const Channel = styled.p`
     padding-left: 20px;
 
     font-size: 15px;
+
+    color: ${props => props.theme.colors.icons};
 `;
 
 export const Separator = styled.div`
@@ -140,29 +140,34 @@ export const Verify = styled(GoVerified)`
 
     margin-left: 5px;
 
-    color: var(--gray-light);
+    color: ${props => props.theme.colors.icons};
 `; 
 
 export const Views = styled.p`
     padding-left: 7px;
+
+    color: ${props => props.theme.colors.icons};
 `;
 
 export const Description = styled.p`
     padding-left: 20px;
 
-    font-size: 14.5px;
+    font-size: 15px;
+    line-height: 25px;
+
+    color: ${props => props.theme.colors.icons};
 `;
 
 export const Novo = styled.p`
     padding: 2.5px 0px 2.5px 5px;
 
-    margin: 30px 0px 0px 20px;
+    margin: 12.5px 0px 0px 20px;
 
     width: 45px;
     height: 15px;
 
     font-size: 12.5px;
 
-    background-color: var(--background-color-button);
-    color: var(--gray-light-text);
+    background-color: ${props => props.theme.colors.button_border};
+    color: ${props => props.theme.colors.label};
 `;

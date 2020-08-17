@@ -9,7 +9,7 @@ export const Postagens = styled.div`
 
     padding-bottom: 65px;
 
-    border-bottom: 5px solid var(--background-color-button);
+    border-bottom: 5px solid ${props => props.theme.colors.button_border};
 
     &.remove{
         padding-bottom: 25px;

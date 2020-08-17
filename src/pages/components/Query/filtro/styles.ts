@@ -8,7 +8,7 @@ export const Container = styled.div`
 
     padding-bottom: 7.5px;
 
-    border-bottom: 2px solid var(--background-color-button);
+    border-bottom: 2px solid ${props => props.theme.colors.button_border};
 `;
 
 export const Separator = styled.div`
@@ -19,10 +19,10 @@ export const Separator = styled.div`
 
     cursor: pointer;
 
-    color: var(--gray-light);
+    color: ${props => props.theme.colors.icons};
 
     &:hover{
-        color: var(--white);
+        color: ${props => props.theme.title === 'light'? props.theme.colors.icons : props.theme.colors.label };
     }
 `;
 
@@ -33,6 +33,8 @@ export const Icon = styled.div`
 export const FiltroIcon = styled(FiSliders)`
     width: 25px;
     height: 25px;
+
+    color: ${props => props.theme.colors.icons};
 `;
 
 export const Label = styled.h3`

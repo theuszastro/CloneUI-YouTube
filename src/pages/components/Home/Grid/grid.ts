@@ -14,7 +14,7 @@ export const Grid = styled.div`
     margin: 25px 20px 20px;
     padding-bottom: 10px;
 
-    border-bottom: 5px solid var(--background-color-button);
+    border-bottom: 5px solid ${props => props.theme.colors.button_border};
 
     &.hide{
         display: none;
@@ -32,7 +32,7 @@ export const Grid = styled.div`
 `;
 
 export const PreAnuncio = styled.h2`
-    color: var(--white);
+    color: ${props => props.theme.colors.label};
 `;
 
 export const Group = styled.div`
@@ -50,7 +50,7 @@ export const Group = styled.div`
 `;
 
 export const Close = styled(AiOutlineClose)`
-    color: var(--gray-light);
+    color: ${props => props.theme.colors.icons};
 
     width: 150px;    
     height: 25px;
@@ -62,7 +62,7 @@ export const Close = styled(AiOutlineClose)`
     }
 
     &:hover{
-        color: var(--white);
+        color: ${props => props.theme.colors.iconsActive};
     }    
 `;
 
@@ -94,7 +94,7 @@ export const IconBaixo = styled(GoChevronDown)`
     width: 25px;
     height: 25px;
 
-    color: var(--gray-light);
+    color: ${props => props.theme.colors.icons};
 `;
 
 export const ContainerMais = styled.div`

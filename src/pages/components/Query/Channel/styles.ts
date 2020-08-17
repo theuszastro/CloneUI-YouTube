@@ -7,7 +7,7 @@ import { BsBell } from 'react-icons/bs'
 export const Container = styled.div`
     padding-bottom: 19.5px;
     
-    border-bottom: 2px solid var(--background-color-button);
+    border-bottom: 2px solid ${props => props.theme.colors.button_border};
     
     max-width: 80%;
     
@@ -47,7 +47,7 @@ export const Separator = styled.div`
 `;
 
 export const Nome = styled.h2`
-    color: var(--white);
+    color: ${props => props.theme.colors.label};
 
     font-size: 20px;
 `;
@@ -63,7 +63,7 @@ export const Bio = styled.p`
 
     margin-right: 10px;
 
-    color: var(--gray-light-text);
+    color: ${props => props.theme.colors.input_text};
     font-size: 14px;
 `;
 
@@ -72,7 +72,7 @@ export const Inscrever = styled.a`
     height: 50px;
 
     background-color: red;
-    color: var(--white);
+    color: ${props => props.theme.title === 'light'?  '#fff' : props.theme.colors.label};
 
     outline: 0;
 
@@ -93,8 +93,8 @@ export const Inscrito = styled.button`
     width: 100px;
     height: 50px;
 
-    background-color: var(--background-color-button);
-    color: var(--gray-light);
+    background-color: ${props => props.theme.colors.button_border};
+    color: ${props => props.theme.title === 'light'?  '#fff' : props.theme.colors.label};
 
     outline: 0;
     
@@ -112,7 +112,7 @@ export const Bell = styled(MdNotificationsActive)`
 
     margin-left: 10px;
 
-    color: var(--gray-light);
+    color: ${props => props.theme.colors.icons};
 
     cursor: pointer;
 `;
@@ -123,18 +123,18 @@ export const Info = styled.div`
 
     margin-bottom: 7px;
 
-    color: var(--gray-light-text);
+    color: ${props => props.theme.colors.input_text};
     font-size: 14px;
 `;
 
 export const Verify = styled(GoVerified)`
     margin-left: 7px;
 
-    color: var(--gray-light);
+    color: ${props => props.theme.colors.icons};
 `;
 
 export const ChangeBell = styled.div`
-    background-color: var(--background-color-button);
+    background-color: ${props => props.theme.colors.button_border};
     
     width: 200px;
 
@@ -156,6 +156,11 @@ export const Item = styled.div`
         background-color: rgba(0, 0, 0, .4);
     }
 
+    &.Option{
+        background-color: ${props => props.theme.title === 'light'?  '#fff' : props.theme.colors.primary}; 
+        color: ${props => props.theme.colors.label};
+    }
+
     &.active{
         svg{
             color: var(--blue-dark);
@@ -171,7 +176,7 @@ export const CssIcons = css`
 
     margin-left: 10px;
 
-    color: var(--gray-light);
+    color: ${props => props.theme.colors.icons};
 
     cursor: pointer;
 `;

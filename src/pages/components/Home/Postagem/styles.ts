@@ -4,9 +4,9 @@ import { BsThreeDotsVertical } from 'react-icons/bs';
 import { MdInsertComment } from 'react-icons/md';
 
 export const Post = styled.div`
-    background-color: var(--gray-background);
+    background-color: ${props => props.theme.colors.primary};
 
-    border: 1px solid var(--background-color-button);
+    border: 1px solid ${props => props.theme.colors.button_border};
 
     max-width: 500px;
     height: 220px;
@@ -31,7 +31,7 @@ export const ChannelImage = styled.img`
 `;
 
 export const ChannelNome = styled.h3`
-    color: var(--gray-light);
+    color: ${props => props.theme.colors.icons};
 
     font-size: 14.5px;
 
@@ -44,6 +44,8 @@ export const PostagemConteudo = styled.p`
     margin: 0px 3% 0px 5%;
 
     font-size: 13px;
+
+    color: ${props => props.theme.colors.label};
 `;
 
 export const PostagemImage = styled.img`
@@ -61,12 +63,12 @@ export const PostagemLike = styled(AiTwotoneLike)`
 
     margin-right: 5px;
 
-    color: var(--gray-light);
+    color: ${props => props.theme.colors.icons};
 
     cursor: pointer;
 
     &:hover{
-        color: var(--white);
+        color: ${props => props.theme.colors.label};
     }
 
     &.active{
@@ -75,7 +77,7 @@ export const PostagemLike = styled(AiTwotoneLike)`
 `;
 
 export const PostagemLikeNumber = styled.p`
-    color: var(--gray-light);
+    color: ${props => props.theme.colors.icons};
 `;
 
 export const PostagemDislike = styled(AiTwotoneDislike)`
@@ -84,12 +86,12 @@ export const PostagemDislike = styled(AiTwotoneDislike)`
 
     margin-left: 10px;
 
-    color: var(--gray-light);
+    color: ${props => props.theme.colors.icons};
 
     cursor: pointer;
 
     &:hover{
-        color: var(--white);
+        color: ${props => props.theme.colors.label};
     }
 
     &.active{
@@ -103,28 +105,28 @@ export const PostagemComments = styled(MdInsertComment)`
 
     margin-right: 5px;
 
-    color: var(--gray-light);
+    color: ${props => props.theme.colors.icons};
 
     cursor: pointer;
 
     &:hover{
-        color: var(--white);
+        color: ${props => props.theme.colors.label};
     }
 `;
 
 export const PostagemCommentsNumber = styled.p`
-    color: var(--gray-light);
+    color: ${props => props.theme.colors.icons};
 `;
 
 export const PostagemReport = styled(BsThreeDotsVertical)`
     margin-left: 10px;
 
-    color: var(--gray-light);
+    color: ${props => props.theme.colors.icons};
 
     cursor: pointer;
 
     &:hover{
-        color: var(--white);
+        color: ${props => props.theme.colors.label};
     }
 `;
 

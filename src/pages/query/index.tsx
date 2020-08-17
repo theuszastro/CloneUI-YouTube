@@ -10,13 +10,17 @@ import Filter from '../components/Query/filtro';
 import Channel from '../components/Query/Channel';
 import Recentes from '../components/Query/recente';
 
-const Query: React.FC = () => {
+interface TemaProps{
+    MudarTema(): void;
+}
+
+const Query: React.FC<TemaProps> = ({ MudarTema }) => {
     
     document.title = `alanzoka - Youtube`;
     
     return (
         <Container>
-            <Header />
+            <Header ToggleTheme={MudarTema} />
 
             <Separator>
                 <Menu />

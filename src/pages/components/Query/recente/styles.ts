@@ -10,6 +10,8 @@ export const Anuncio = styled.h2`
     margin-left: 25px;
 
     padding: 25px 0px;
+
+    color: ${props => props.theme.colors.label};
 `;
 
 export const Separator = styled.div`
@@ -26,9 +28,9 @@ export const MostrarMais = styled.div`
     font-size: 12.5px;
     font-weight: normal;
 
-    border-bottom: 2px solid var(--background-color-button);
+    border-bottom: 2px solid ${props => props.theme.colors.button_border};
 
-    color: var(--gray-light-text);
+    color: ${props => props.theme.colors.input_text};
 
     &.remover{
         display: none;
@@ -36,7 +38,6 @@ export const MostrarMais = styled.div`
 
     &:hover{
         background-color: rgba(0, 0, 0, .1);
-        color: var(--white);
     }
 `;
 

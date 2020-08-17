@@ -12,7 +12,7 @@ export const Container = styled.div`
     font-size: 15px;
     color: #fff;
 
-    background-color: var(--gray-background);
+    background-color: ${props => props.theme.colors.primary};
 
     overflow: hidden;
 
@@ -25,11 +25,11 @@ export const Container = styled.div`
     }
   
     &::-webkit-scrollbar-track {
-        background: var(--gray-background);          
+        background: ${props => props.theme.colors.primary};          
     }
     
     &::-webkit-scrollbar-thumb {
-        background-color: var(--background-color-button);         
+        background-color: ${props => props.theme.colors.button_border};         
     }
 `;
 
@@ -76,22 +76,33 @@ export const Item = styled.li`
 
     cursor: pointer;
 
-    color: var(--white);
+    color: ${props => props.theme.colors.label};
 
     svg{
-        color: var(--gray-light);
+        color: ${props => props.theme.colors.icons};
         flex-shrink: 0;
     }
 
     a{
-        padding: 5px 25px;
+        padding: 10px 25px;
+
+        display: flex;
+        align-items: center;
+
+        text-decoration: none;
+
+        color: ${props => props.theme.colors.label};
+
+        p{
+            margin-left: 25px;
+        }
     }
 
     &.active{
-        background-color: var(--hover-gray);
+        background-color: ${props => props.theme.colors.liActive};
 
         svg{
-            color: var(--white);
+            color: ${props => props.theme.colors.iconsActive};
         }
     }
 
@@ -100,10 +111,10 @@ export const Item = styled.li`
     }
 
     &:hover{
-        background-color: var(--hover-gray);
+        background-color: ${props => props.theme.colors.liActive};
 
         svg{
-            color: var(--white);
+            color: ${props => props.theme.colors.iconsActive};
         }
     }
 `;
@@ -120,7 +131,7 @@ export const Label = styled.p`
 export const Parte = styled.article`
     padding: 20px 0px;
 
-    border-bottom: 1px solid var(--background-color-button);
+    border-bottom: 1px solid ${props => props.theme.colors.button_border};
 `;
 
 export const ContainerChannel = styled.div`
@@ -151,7 +162,7 @@ export const ContainerChannel = styled.div`
 `;
 
 export const HeaderTitle = styled.p`
-    color: rgba(255, 255, 255, 0.5);
+    color: ${props => props.theme.colors.label};
 
     margin: 0px 0px 10px 15px;
 
@@ -175,7 +186,7 @@ export const ChannelNome = styled.p`
 export const FooterTitle = styled.p`
     font-size: 15px;
 
-    color: var(--hover-gray);
+    color: ${props => props.theme.colors.liActive};
 
     margin: 10px;
 `;

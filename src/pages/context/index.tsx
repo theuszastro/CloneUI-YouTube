@@ -12,15 +12,19 @@ type ContextProps = {
 
     Options: boolean;
     setOptions: any;
+
+    Profile: boolean;
+    setProfile: any;
 }
 
 const GeralContext = createContext<Partial<ContextProps>>({});
 
-const ContextProvider: React.FC = ({ children }) => {
+const ContextProvider: React.FC = ({ children }) => {;
     const [Pequeno, setPequeno] = useState(false);
     const [Notification, setNotification] = useState(false);
     const [NotificationNumber, setNotificationNumber] = useState(2);
     const [Options, setOptions] = useState(false);
+    const [Profile, setProfile] = useState(false);
 
     return (
         <GeralContext.Provider
@@ -28,7 +32,8 @@ const ContextProvider: React.FC = ({ children }) => {
                 Pequeno, setPequeno,
                 Notification, setNotification,
                 NotificationNumber, setNotificationNumber,
-                Options, setOptions
+                Options, setOptions,
+                Profile, setProfile,
             }}
         >
             {children}
@@ -55,6 +60,13 @@ export function useOptions(){
     const { Options, setOptions } = context;
 
     return { Options, setOptions };
+}
+
+export function useProfile(){
+    const context = useContext(GeralContext);
+    const { Profile, setProfile } = context;
+
+    return { Profile, setProfile };
 }
 
 export default ContextProvider;
