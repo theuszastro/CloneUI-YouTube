@@ -4,11 +4,74 @@ import { Link } from 'react-router-dom';
 import Dados from '../dados.json';
 import { useSmall, useNotification, useOptions, useProfile } from '../../context';
 
+import Switch from 'react-switch';
+
 import { BsList, BsGearFill } from 'react-icons/bs';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { FaKeyboard } from 'react-icons/fa';
 
-import { Container, Separator, Quantidade, Left, Logo, LogoMarca, Brasil, Center, InputIcon, Pesquisar, Search, Right,  Icon, Video, Grid, Bell, User, Notificacao, HeaderNotificacao, HeaderTitle, Caixa, Item, Channel, ChannelImage, Thumb, Config, Mais, Menos, Limpar } from './styles';
+import { 
+    Container, 
+    Separator, 
+    Quantidade, 
+    Left, 
+    Logo, 
+    LogoMarca, 
+    Brasil, 
+    Center, 
+    InputIcon, 
+    Pesquisar, 
+    Search, 
+    Right,  
+    Icon, 
+    Video, 
+    Grid, 
+    Bell, 
+    User, 
+    Notificacao, 
+    HeaderNotificacao, 
+    HeaderTitle, 
+    Caixa, 
+    Item, 
+    Channel, 
+    ChannelImage,
+    Thumb, 
+    Config, 
+    Mais, 
+    Menos,
+    Limpar,
+    Perfil, 
+    Parte,
+    Label, 
+    ProfileItem, 
+    Separar, 
+    FeedBackIcon, 
+    HelpIcon, 
+    ConfigIcon, 
+    IrAte, 
+    ProtegidoIcon, 
+    LocalIcon, 
+    IdiomaIcon, 
+    TemaIcon, 
+    SairIcon, 
+    AlternarIcon,
+    AssinaturaIcon, 
+    ChannelIcon, 
+    PerfilInfo, 
+    PerfilImage, 
+    Lado,
+    PerfilNome, 
+    PerfilEmail, 
+    Gerenciar,
+    TecladoIcon,
+    ContainerTema,
+    HeaderTema,
+    Voltar,
+    TemaTitle,
+    Info,
+    FooterTema,
+    Title
+} from './styles';
 
 import { ThemeContext } from 'styled-components';
 
@@ -19,7 +82,7 @@ interface PropsHeader{
 const Header: React.FC<PropsHeader> = ({ ToggleTheme }) => {
     const { Notification, setNotification, NotificationNumber, setNotificationNumber } = useNotification(); 
     const { Options, setOptions } = useOptions(); 
-    const { Profile, setProfile } = useProfile(); 
+    const { Tema, setTema, Profile, setProfile } = useProfile(); 
     const { setPequeno } = useSmall();
 
     const LogoDark = 'https://i.postimg.cc/Y0CHZf7s/oie-xb-Ik-JZfmwaqh.png';
@@ -47,6 +110,7 @@ const Header: React.FC<PropsHeader> = ({ ToggleTheme }) => {
                     Notification &&  setNotification(false);
                     Options && setOptions(false);                
                     Profile && setProfile(false);                
+                    Tema && setTema(false);                
                 }}
             >
                 <Left>
@@ -87,7 +151,6 @@ const Header: React.FC<PropsHeader> = ({ ToggleTheme }) => {
                                 paddingLeft: 7.5, 
                                 cursor: 'pointer'
                             }}
-                            onClick={() => ToggleTheme()}
                         />
                     </InputIcon>
                     
@@ -223,9 +286,208 @@ const Header: React.FC<PropsHeader> = ({ ToggleTheme }) => {
 
             {
                 Profile? (
-                    <div />
+                    <Perfil>
+                        <PerfilInfo>
+                            <PerfilImage src="https://cbie.ca/wp-content/uploads/2018/08/female-placeholder.jpg" />
+                            <Lado>
+                                <PerfilNome>Seila :P</PerfilNome>
+                                <PerfilEmail>example@gmail.com</PerfilEmail>
+
+                                <Gerenciar>Gerenciar sua Conta do Google</Gerenciar>
+                            </Lado>
+                        </PerfilInfo>
+
+                        <Parte>
+                            <ProfileItem>
+                                <Separar>
+                                    <ChannelIcon 
+                                        size={25} 
+                                    />
+                                    <Label>Seu canal</Label>
+                                </Separar>
+                            </ProfileItem>
+                            
+                            <ProfileItem>
+                                <Separar>
+                                    <AssinaturaIcon 
+                                        size={25} 
+                                    />
+                                    <Label>Assinaturas</Label>
+                                </Separar>
+                            </ProfileItem>
+
+                            <ProfileItem>
+                                <Separar>
+                                    <ConfigIcon 
+                                        size={25} 
+                                    />
+                                    <Label>YouTube Studio</Label>
+                                </Separar>
+                            </ProfileItem>
+
+                            <ProfileItem>
+                                <Separar>
+                                    <AlternarIcon 
+                                        size={25} 
+                                    />
+                                    <Label>Alternar conta</Label>
+                                </Separar>
+
+                                <IrAte 
+                                    size={25} 
+                                />
+                            </ProfileItem>
+
+                            <ProfileItem>
+                                <Separar>
+                                    <SairIcon 
+                                        size={25} 
+                                    />
+                                    <Label>Sair</Label>
+                                </Separar>
+                            </ProfileItem>
+                        </Parte>
+
+                        <Parte>
+                            <ProfileItem onClick={() => {
+                                setProfile(false);
+                                setTema(true);
+                            }}>
+                                <Separar>
+                                    <TemaIcon 
+                                        size={25} 
+                                    />
+                                    <Label>Tema: {theme.title === 'light'? 'Claro' : 'Escuro'}</Label>
+                                </Separar>
+
+                                <IrAte 
+                                    size={25} 
+                                />
+                            </ProfileItem>
+
+                            <ProfileItem>
+                                <Separar>
+                                    <IdiomaIcon 
+                                        size={25} 
+                                    />
+                                    <Label>Idioma: Português</Label>
+                                </Separar>
+
+                                <IrAte 
+                                    size={25} 
+                                />
+                            </ProfileItem>
+
+                            <ProfileItem>
+                                <Separar>
+                                    <LocalIcon 
+                                        size={25} 
+                                    />
+                                    <Label>Local: Brasil</Label>
+                                </Separar>
+
+                                <IrAte 
+                                    size={25} 
+                                />
+                            </ProfileItem>
+                            
+                            <ProfileItem>
+                                <Separar>
+                                    <ConfigIcon 
+                                        size={25} 
+                                    />
+                                    <Label>Configurações</Label>
+                                </Separar>
+                            </ProfileItem>
+
+                            <ProfileItem>
+                                <Separar>
+                                    <ProtegidoIcon 
+                                        size={25} 
+                                    />
+                                    <Label>Seus dados no YouTube</Label>
+                                </Separar>
+                            </ProfileItem>
+
+                            <ProfileItem>
+                                <Separar>
+                                    <HelpIcon 
+                                        size={25} 
+                                    />
+                                    <Label>Ajuda</Label>
+                                </Separar>
+                            </ProfileItem>
+
+                            <ProfileItem>
+                                <Separar>
+                                    <FeedBackIcon 
+                                        size={25} 
+                                    />
+                                    <Label>Enviar feedback</Label>
+                                </Separar>
+                            </ProfileItem>
+
+                            <ProfileItem>
+                                <Separar>
+                                <TecladoIcon size={25} />
+                                    <Label>Atalhos do Teclado</Label>
+                                </Separar>
+                            </ProfileItem>
+                        </Parte>
+                        
+                        <Parte>
+                            <Label className="Restrito" >Modo restito: desativado</Label>
+                            <IrAte 
+                                size={25} 
+                            />
+                        </Parte>
+                    </Perfil>
                 ) : null
-            } 
+            }
+
+            {
+                Tema? (
+                    <ContainerTema>
+                        <HeaderTema>
+                            <Voltar 
+                                size={25}
+                                onClick={() => {
+                                    setTema(false);
+                                    setProfile(true);
+                                }}
+                            />
+                            <TemaTitle>Tema</TemaTitle>
+                        </HeaderTema>
+                        <Info>
+                            O Tema escuro escurece as partes claras da página para otimizar a experiência noturna. Confira!
+                        </Info>
+
+                        <Info>
+                            A configuração do Tema escuro será aplicada somente a este navegador.
+                        </Info>
+
+                        <FooterTema>
+                            <Title>
+                                {theme.title === 'light'? 'TEMA CLARO' : 'TEMA ESCURO'}
+                            </Title>
+
+                            <Switch 
+                                onChange={() => ToggleTheme()}
+                                checked={theme.title === 'dark'}
+                                checkedIcon={false}
+                                uncheckedIcon={false}
+                                height={20}
+                                width={60}
+                                handleDiameter={25}
+                                onHandleColor={theme.colors.like}
+                                offHandleColor={theme.colors.icons}
+                                offColor={theme.colors.button_border}
+                                onColor={theme.colors.secondary}
+                            />
+                        </FooterTema>
+                    </ContainerTema>
+                ) : null
+            }
         </>
     );
 }

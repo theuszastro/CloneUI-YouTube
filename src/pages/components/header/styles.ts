@@ -1,6 +1,11 @@
 import styled, { css } from 'styled-components';
-import { BsFillGrid3X3GapFill, BsFillBellFill } from 'react-icons/bs';
-import { MdVideoCall } from 'react-icons/md';
+
+import { GoOrganization } from 'react-icons/go';
+import { FaKeyboard } from 'react-icons/fa';
+import { IoIosLogIn, IoMdHelpCircle } from 'react-icons/io';
+import { AiFillDollarCircle, AiOutlineGlobal } from 'react-icons/ai';
+import { BsFillGrid3X3GapFill, BsFillBellFill, BsArrowLeft } from 'react-icons/bs';
+import { MdChevronRight, MdSmsFailed, MdAccountBox, MdBrightness4, MdSettings,  MdVideoCall, MdSecurity } from 'react-icons/md';
 
 export const Container = styled.div`
     background-color: ${props => props.theme.colors.primary};
@@ -344,4 +349,203 @@ export const Menos = styled.button`
 
 export const Limpar = styled.button`
     ${buttons}
+`;
+
+ 
+
+
+                        // PROFILE
+
+export const Perfil = styled.div`
+    width: 300px;
+    max-width: 300px;
+    min-height: 650px;
+    max-height: 714px;
+
+    background-color: ${props => props.theme.title === 'light'? '#FFF' : props.theme.colors.primary};
+
+    border: 1px solid ${props => props.theme.colors.button_border};
+
+    position: absolute;
+    top: 48px;
+    right: 25px;
+
+    z-index: 9999;
+
+    @media(width: 1366px){
+        top: 10px;
+        right: 70px;
+    }
+`;
+
+export const Parte = styled.ul`
+    border-bottom: 1px solid ${props => props.theme.colors.button_border};
+
+    padding-bottom: 7.5px;
+    margin: 7.5px 0px 0px;
+
+    &:last-child{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+        margin: 7px 0px 0px;
+        border: 0px;
+    }
+`;
+
+export const Label = styled.p`
+    color: ${props => props.theme.colors.label};
+
+    &.Restrito{
+        padding-left: 16px;
+    }
+`;
+
+export const ProfileItem = styled.li`
+    list-style: none;
+
+    cursor: pointer;
+
+    padding: 7px 0px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:hover{
+        background-color: ${props => props.theme.colors.liActive};
+
+        svg{
+            color: ${props => props.theme.colors.label};
+        }
+    }
+`;
+
+export const Separar = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+export const PerfilInfo = styled.div`
+    display: flex;
+
+    padding: 20px 20px 15px;
+
+    border-bottom: 1px solid ${props => props.theme.colors.button_border};
+`;
+
+export const PerfilImage = styled.img`
+    width: 40px;
+    height: 40px;
+
+    border-radius: 20px;
+`;
+
+export const Lado = styled.div`
+    margin-left: 20px;
+`;
+
+export const PerfilNome = styled.h3`
+    color: ${props => props.theme.colors.label};
+`;
+
+export const PerfilEmail = styled.p`
+    color: ${props => props.theme.colors.label};
+
+    margin-bottom: 10px;
+`;
+
+export const Gerenciar = styled.a`
+    text-decoration: none;
+
+    color: ${props =>  props.theme.colors.like};
+    font-size: 15px;
+
+    margin-top: 10px;
+`;
+
+const CssIcon = css`
+    margin: 0px 25px;
+
+    color: ${props => props.theme.colors.icons};
+`;
+
+export const FeedBackIcon = styled(MdSmsFailed)`${CssIcon}`;
+export const HelpIcon = styled(IoMdHelpCircle)`${CssIcon}`;
+export const ConfigIcon = styled(MdSettings)`${CssIcon}`;
+export const ProtegidoIcon = styled(MdSecurity)`${CssIcon}`;
+export const LocalIcon = styled(AiOutlineGlobal)`${CssIcon}`;
+export const IdiomaIcon = styled(AiOutlineGlobal)`${CssIcon}`;
+export const TemaIcon = styled(MdBrightness4)`${CssIcon}`;
+export const SairIcon = styled(IoIosLogIn)`${CssIcon}`;
+export const AlternarIcon = styled(GoOrganization)`${CssIcon}`;
+export const AssinaturaIcon = styled(AiFillDollarCircle)`${CssIcon}`;
+export const ChannelIcon = styled(MdAccountBox)`${CssIcon}`;
+export const IrAte = styled(MdChevronRight)`${CssIcon}`;
+export const TecladoIcon = styled(FaKeyboard)`${CssIcon}`;
+
+
+
+
+                                    // TEMA 
+
+export const ContainerTema = styled.div`
+    position: absolute;
+    top: 48px;
+    right: 25px;
+
+    z-index: 999;
+
+    background-color: ${props => props.theme.title === 'light'? '#FFF' : props.theme.colors.primary};
+
+    border: 1px solid ${props => props.theme.colors.button_border};
+
+    width: 300px;
+    max-width: 300px;
+`;
+
+export const HeaderTema = styled.div`
+    display: flex;
+    align-items: center;
+
+    padding: 10px 10px;
+
+    border-bottom: 1px solid ${props => props.theme.colors.button_border};
+`;
+
+export const Voltar = styled(BsArrowLeft)`
+    color: ${props => props.theme.title === 'light'? props.theme.colors.icons : '#FFF'};
+
+    cursor: pointer;
+`;
+
+export const TemaTitle = styled.h3`
+    color: ${props => props.theme.colors.label};
+
+    margin-left: 15px;
+`;
+
+export const Info = styled.p`
+    padding: 10px 20px;
+
+    line-height: 21px;
+
+    color: ${props => props.theme.colors.label};
+
+    &:last-child{
+        margin: -5px 0px 5px;
+    }
+`;
+
+export const FooterTema = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 20px;
+`;
+
+export const Title = styled.p`
+    color: ${props => props.theme.colors.icons};
 `;

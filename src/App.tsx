@@ -44,6 +44,7 @@ const App: React.FC = () => {
 
     if(ThemeStorage === null){
       localStorage.setItem('theme', 'light');
+      setMostrar(true);
 
       return;
     }

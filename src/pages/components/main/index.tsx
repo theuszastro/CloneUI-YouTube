@@ -6,7 +6,7 @@ import { useNotification, useOptions, useProfile } from '../../context';
 const Conteudo: React.FC = ({ children }) => {
     const { Notification, setNotification } = useNotification();
     const { Options, setOptions } = useOptions();
-    const { Profile, setProfile } = useProfile();
+    const { Tema, setTema, Profile, setProfile } = useProfile();
 
     return (
         <Container
@@ -14,6 +14,7 @@ const Conteudo: React.FC = ({ children }) => {
                 Notification &&  setNotification(false);
                 Options && setOptions(false);
                 Profile && setProfile(false);
+                Tema && setTema(false);
             }}
         >
             {children}

@@ -15,7 +15,7 @@ const Menu: React.FC = () => {
 
     const { Notification, setNotification } = useNotification();
     const { Options, setOptions } = useOptions();
-    const { Profile, setProfile } = useProfile();
+    const { Profile, setProfile, Tema, setTema } = useProfile();
 
     const url = 'http://localhost:3000';
 
@@ -41,6 +41,7 @@ const Menu: React.FC = () => {
                 Notification &&  setNotification(false);
                 Options &&  setOptions(false);
                 Profile &&  setProfile(false);
+                Tema &&  setTema(false);
             }}
         >
             <Principal
