@@ -15,8 +15,12 @@ type ContextProps = {
 
     Profile: boolean;
     setProfile: any;
+
     Tema: boolean;
     setTema: any;
+
+    ListStyle: string;
+    setListStyle: any;
 }
 
 const GeralContext = createContext<Partial<ContextProps>>({});
@@ -28,6 +32,7 @@ const ContextProvider: React.FC = ({ children }) => {;
     const [Options, setOptions] = useState(false);
     const [Profile, setProfile] = useState(false);
     const [Tema, setTema] = useState(false);
+    const [ListStyle, setListStyle] = useState('grid');
 
     return (
         <GeralContext.Provider
@@ -38,6 +43,7 @@ const ContextProvider: React.FC = ({ children }) => {;
                 Options, setOptions,
                 Profile, setProfile,
                 Tema, setTema,
+                ListStyle, setListStyle
             }}
         >
             {children}
@@ -69,8 +75,15 @@ export function useOptions(){
 export function useProfile(){
     const context = useContext(GeralContext);
     const { Profile, setProfile, Tema, setTema } = context;
-
+    
     return { Profile, setProfile, Tema, setTema };
+}
+
+export function useStyle(){
+    const context = useContext(GeralContext);
+    const { ListStyle, setListStyle } = context;
+    
+    return { ListStyle, setListStyle };
 }
 
 export default ContextProvider;

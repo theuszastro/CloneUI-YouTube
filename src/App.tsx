@@ -5,11 +5,11 @@ import GlobalStyle from './styles/GlobalStyle';
 import ContextProvider from './pages/context';
 
 import { Dark, Light } from './styles/themes';
-
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import Home from './pages/home';
 import Query from './pages/query';
+import Subscript from './pages/inscritos';
 
 interface Props {
   title: string;
@@ -34,7 +34,7 @@ const App: React.FC = () => {
   const [Theme, setTheme] = useState<Props>(Light);
   const [Change, setChange] = useState('');
   const [Mostrar, setMostrar] = useState(false);
-
+ 
   const Toggle = () => {
     Theme.title === 'light'? setChange(Dark.title) : setChange(Light.title);
   }
@@ -65,13 +65,14 @@ const App: React.FC = () => {
 
     setMostrar(true);
   }, [Change]);
-  
+
   return Mostrar? (
     <ContextProvider>
       <ThemeProvider theme={Theme} >
         <BrowserRouter>
           <Route path="/" exact component={() => <Home MudarTema={Toggle} />}/>
           <Route path="/q=" component={() => <Query MudarTema={Toggle} />} />
+          <Route path="/feed/subscript" component={() => <Subscript MudarTema={Toggle} />} />
         </BrowserRouter>
       </ThemeProvider>
       

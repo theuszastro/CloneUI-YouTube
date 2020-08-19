@@ -48,11 +48,24 @@ export const Principal = styled.ul`
         }
 
         li{
-            padding: 15px 0px;
+            padding: 10px 0px;
             display: none;
 
+            position: relative;
+
             a{
-                padding: 20px 25px;
+                padding: 15px 25px;
+                display: block; 
+
+                p {
+                    position: absolute;
+                    bottom: 10px;
+                    right: 10px;
+                }
+
+                p.First{
+                    right: 21px;
+                }
             }
             
             p{

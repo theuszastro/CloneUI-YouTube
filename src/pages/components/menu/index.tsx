@@ -53,7 +53,7 @@ const Menu: React.FC = () => {
                     >
                         <Link to="/">
                             <BsHouseFill size={25} />
-                            <Label>Início</Label>
+                            <Label className="First" >Início</Label>
                         </Link>
                     </Item>
 
@@ -62,17 +62,17 @@ const Menu: React.FC = () => {
                     >
                         <Link to="/">
                             <AiFillFire size={25}  />
+                            <Label>Em alta</Label>
                         </Link>
-                        <Label>Em alta</Label>
                     </Item>
 
                     <Item
                         className="show"
                     >
-                        <Link to="/">
+                        <Link to="/feed/subscript">
                             <BsFillCollectionPlayFill size={25} />
+                            <Label>Inscrições</Label>
                         </Link>
-                        <Label>Inscrições</Label>
                     </Item>
                 </Parte>
 
@@ -82,8 +82,8 @@ const Menu: React.FC = () => {
                     >
                         <Link to="/">
                             <MdVideoLibrary size={25} />
+                            <Label>Biblioteca</Label>
                         </Link>
-                        <Label>Biblioteca</Label>
                     </Item>
                     
                     <Item>
@@ -117,6 +117,7 @@ const Menu: React.FC = () => {
                     {
                         LengthPlayList.map((index) => (
                             <Item
+                                key={index * 9}
                                 className="hide playlist"
                             >
                                 <Link to="">
@@ -174,8 +175,8 @@ const Menu: React.FC = () => {
                         Dados.Inscritos.map((item, index) => {
                             return(
                                 <Item
-                                    className={item.class && `Subscript  ${item.class}`}
                                     key={index}
+                                    className={item.class && `Subscript  ${item.class}`}
                                 >
                                     <ContainerChannel
                                         className={item.new && `${item.new}`}
